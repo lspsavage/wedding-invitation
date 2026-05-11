@@ -5,6 +5,8 @@ import { eq } from "drizzle-orm";
 import { cache } from "react";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 import ClassicElegant from "@/components/templates/ClassicElegant";
 import MusicPlayer from "@/components/MusicPlayer";
 
