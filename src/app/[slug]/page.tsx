@@ -10,8 +10,10 @@ export const dynamic = "force-dynamic";
 import ClassicElegant from "@/components/templates/ClassicElegant";
 import MusicPlayer from "@/components/MusicPlayer";
 
-// ... existing code ...
+// Cached fetch function to avoid duplicate DB calls
 const getInvitationData = cache(async (slug: string) => {
+  if (!db) return null;
+  
   return await db.query.invitations.findFirst({
     where: eq(invitations.slug, slug),
     with: {

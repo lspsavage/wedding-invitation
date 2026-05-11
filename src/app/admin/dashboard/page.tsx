@@ -9,6 +9,8 @@ import { Trash2, ExternalLink, Plus } from "lucide-react";
 import CopyLinkButton from "./CopyLinkButton";
 
 export default async function DashboardPage() {
+  if (!db) return <div className="p-8 text-red-600">Database connection not available. Check Environment Variables.</div>;
+
   const allInvitations = await db.query.invitations.findMany({
     with: {
       template: true,
