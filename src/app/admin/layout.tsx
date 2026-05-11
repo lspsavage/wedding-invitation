@@ -39,7 +39,7 @@ export default function AdminLayout({
         </nav>
         <div className="p-6 border-t border-white/10 flex items-center justify-between">
           <span className="text-sm text-white/60">Akun Anda</span>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton />
         </div>
       </aside>
 
@@ -47,7 +47,7 @@ export default function AdminLayout({
       <div className="flex-1 flex flex-col">
         <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8 md:hidden">
           <h2 className="text-xl font-serif text-brand-charcoal">Wedding Admin</h2>
-          <UserButton afterSignOutUrl="/" />
+          <UserButton />
         </header>
         <main className="p-8">{children}</main>
       </div>
