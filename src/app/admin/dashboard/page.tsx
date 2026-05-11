@@ -1,5 +1,8 @@
 import { db } from "@/lib/db";
 import { invitations } from "@/lib/db/schema";
+
+export const dynamic = "force-dynamic";
+
 import { deleteInvitation } from "../actions";
 import Link from "next/link";
 import { Trash2, ExternalLink, Plus } from "lucide-react";

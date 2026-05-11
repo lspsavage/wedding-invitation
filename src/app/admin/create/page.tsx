@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { createInvitation } from "../actions";
 import UploadWidget from "./UploadWidget";
 import { useState } from "react";
