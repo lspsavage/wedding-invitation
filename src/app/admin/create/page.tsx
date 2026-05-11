@@ -3,10 +3,14 @@
 export const dynamic = "force-dynamic";
 
 import { createInvitation } from "../actions";
-import UploadWidget from "./UploadWidget";
 import { useState } from "react";
 import { ArrowLeft, Save } from "lucide-react";
 import Link from "next/link";
+import dynamicImport from "next/dynamic";
+
+const UploadWidget = dynamicImport(() => import("./UploadWidget"), {
+  ssr: false,
+});
 
 export default function CreateInvitationPage() {
   const [heroImageUrl, setHeroImageUrl] = useState("");
