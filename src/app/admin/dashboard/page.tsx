@@ -45,7 +45,7 @@ export default async function DashboardPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 font-sans">
-            {allInvitations.map((inv) => (
+            {allInvitations.map((inv: any) => (
               <tr key={inv.id} className="hover:bg-gray-50 transition-colors">
                 <td className="px-6 py-4">
                   <div className="font-medium text-gray-900">
