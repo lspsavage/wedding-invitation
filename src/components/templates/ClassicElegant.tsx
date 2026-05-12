@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Countdown from "@/components/Countdown";
-import { MapPin, Calendar, Clock, ExternalLink, Gift, Copy, Check } from "lucide-react";
+import { MapPin, Calendar, Clock, ExternalLink, Gift, Copy, Check, Heart } from "lucide-react";
 import type { Invitation } from "@/lib/db/schema";
 import cloudinaryLoader from "@/lib/cloudinaryLoader";
 
