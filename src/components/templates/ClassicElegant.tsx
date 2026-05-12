@@ -16,16 +16,27 @@ export default function ClassicElegant({ data }: TemplateProps) {
   const { akad, resepsi, mapsUrl } = content;
   
   const [isOpen, setIsOpen] = useState(false);
+  const [isPlayingVideo, setIsPlayingVideo] = useState(false);
   const [copiedBank, setCopiedBank] = useState<string | null>(null);
 
   // Fallbacks to our generated assets if dynamic ones aren't provided
   const heroImageSrc = content.heroImageUrl || "/prewedding_javanese.png";
   const bgPatternSrc = "/toile_pattern_blue.png";
+  const openingVideoSrc = "/opening-animation.mp4";
 
   const handleCopy = (text: string, bank: string) => {
     navigator.clipboard.writeText(text);
     setCopiedBank(bank);
     setTimeout(() => setCopiedBank(null), 2000);
+  };
+
+  const handleOpenClick = () => {
+    setIsPlayingVideo(true);
+  };
+
+  const handleVideoEnd = () => {
+    setIsPlayingVideo(false);
+    setIsOpen(true);
   };
 
   return (
@@ -50,7 +61,33 @@ export default function ClassicElegant({ data }: TemplateProps) {
           {/* Gradient Overlay for Text Readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/70" />
           
-          <div className="absolute inset-0 flex flex-col items-center justify-between py-20 px-6 text-center">
+          {/* VIDEO OVERLAY */}
+          <div 
+            className={`absolute inset-0 bg-black z-20 flex items-center justify-center transition-opacity duration-500 ${
+              isPlayingVideo ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            {isPlayingVideo && (
+              <video 
+                src={openingVideoSrc}
+                autoPlay 
+                playsInline
+                muted // Usually required for autoplay
+                onEnded={handleVideoEnd}
+                onError={handleVideoEnd} // Skip if video fails to load
+                className="w-full h-full object-cover"
+              />
+            )}
+            {/* Skip button just in case */}
+            <button 
+              onClick={handleVideoEnd}
+              className={`absolute top-8 right-8 text-white/50 text-sm tracking-widest uppercase hover:text-white transition-opacity ${isPlayingVideo ? "opacity-100" : "opacity-0"}`}
+            >
+              Skip
+            </button>
+          </div>
+
+          <div className={`absolute inset-0 flex flex-col items-center justify-between py-20 px-6 text-center transition-opacity duration-500 ${isPlayingVideo ? "opacity-0" : "opacity-100"}`}>
             <div className="animate-fade-in-down">
               <span className="text-white/90 uppercase tracking-[0.4em] text-sm md:text-base font-medium mb-4 block">
                 The Wedding Of
@@ -70,7 +107,7 @@ export default function ClassicElegant({ data }: TemplateProps) {
                 })}
               </p>
               <button
-                onClick={() => setIsOpen(true)}
+                onClick={handleOpenClick}
                 className="group relative inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-serif text-lg tracking-widest uppercase hover:bg-white/20 hover:border-white/50 transition-all duration-300"
               >
                 <span>Buka Undangan</span>
