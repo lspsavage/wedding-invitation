@@ -12,5 +12,12 @@
   },
   "observability": {
     "enabled": true
+  },
+  "vars": {
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "pk_test_cmVsZXZhbnQta2lkLTIzLmNsZXJrLmFjY291bnRzLmRldiQ",
+    "CLERK_SECRET_KEY": "sk_test_WfNRqqpXYDglLJ1lzXBHefZzgRAPM2KJ8USFPSzdbz",
+    "TURSO_DATABASE_URL": "libsql://wedding-pramzt.aws-ap-south-1.turso.io",
+    "TURSO_AUTH_TOKEN": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3Nzg0NjgyNzYsImlkIjoiMDE5ZTE0ZjgtMTEwMS03ZWUwLWFjMTctNTQyNmY0ZDZlMDQ2IiwicmlkIjoiNjk4NjhiZGUtNTc2Zi00MTExLTk4ZDUtZDdmMjFlODAwNmNmIn0.oWmYWdP2_4dHHZtjvyuT2A18ZwW3nb2R87DigUIbkcGkM9vXkAKVOs2dceAZXlD8gXW_Hp-oU4do35Zrv3s9CQ",
+    "NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME": "ddvcdrks7"
   }
 }
