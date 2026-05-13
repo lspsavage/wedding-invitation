@@ -8,7 +8,6 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 import ClassicElegant from "@/components/templates/ClassicElegant";
-import MusicPlayer from "@/components/MusicPlayer";
 
 // Cached fetch function to avoid duplicate DB calls
 const getInvitationData = cache(async (slug: string) => {
@@ -76,8 +75,9 @@ export default async function InvitationPage({ params }: PageProps) {
   // Render the selected template with the fetched data
   return (
     <>
-      <MusicPlayer coupleName={`${data.groomName} & ${data.brideName}`} />
       <TemplateComponent data={data} />
     </>
   );
 }
+
+

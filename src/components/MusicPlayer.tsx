@@ -69,7 +69,7 @@ export default function MusicPlayer({
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-cream"
+            className="absolute inset-0 z-[100] flex items-center justify-center bg-brand-cream"
           >
             <div className="text-center px-6">
               <motion.div
@@ -107,7 +107,7 @@ export default function MusicPlayer({
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="fixed bottom-6 right-6 z-50"
+          className="absolute bottom-6 right-6 z-50"
         >
           <button
             onClick={togglePlay}
