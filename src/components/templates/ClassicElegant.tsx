@@ -160,22 +160,12 @@ const HeroIntro = ({ onOpen, data }: { onOpen: () => void; data: Invitation }) =
 // ================= VIDEO SECTION =================
 const VideoSection = ({ data }: { data: Invitation }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [showNames, setShowNames] = useState(false);
-  const [isVideoEnded, setIsVideoEnded] = useState(false);
+  const [showNames, setShowNames] = useState(true);
+  const [isVideoEnded, setIsVideoEnded] = useState(true);
 
   useEffect(() => {
-    const handleTimeUpdate = () => {
-      if (videoRef.current && videoRef.current.currentTime >= 5) {
-        setShowNames(true);
-      }
-    };
-    const video = videoRef.current;
-    if (video) {
-      video.addEventListener('timeupdate', handleTimeUpdate);
-    }
-    return () => {
-      if (video) video.removeEventListener('timeupdate', handleTimeUpdate);
-    };
+    // Skip video since it's removed for testing
+    setShowNames(true);
   }, []);
 
   const handleVideoEnd = () => {
@@ -194,15 +184,7 @@ const VideoSection = ({ data }: { data: Invitation }) => {
         />
       </div>
       
-      <video
-        ref={videoRef}
-        src="/video_bg.mp4"
-        autoPlay
-        muted
-        playsInline
-        onEnded={handleVideoEnd}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${isVideoEnded ? 'opacity-0' : 'opacity-100'}`}
-      />
+      {/* Video removed for troubleshooting */}
       
       <div className={`relative z-10 transition-all duration-[2000ms] ease-out transform text-center px-6 ${showNames ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-10'}`}>
         <p 
